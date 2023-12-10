@@ -50,7 +50,7 @@ main {
 }
 
 ::marker {
-  content: url(assets/icon-list.svg);
+  content: url(/assets/icon-list.svg);
 }
 
 li {
