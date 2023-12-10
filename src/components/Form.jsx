@@ -1,7 +1,11 @@
 import { useState } from "react";
 
-export default function Form() {
-  const [emailInput, setEmailInput] = useState("");
+export default function Form({
+  emailInput,
+  setEmailInput,
+  showSucessModal,
+  setShowSuccessModal,
+}) {
   const [isValidEmail, setIsValidEmail] = useState(true);
 
   function handleChange(e) {
@@ -9,6 +13,11 @@ export default function Form() {
     setEmailInput(value);
     const validEmail = /\S+@\S+\.\S+/.test(value);
     setIsValidEmail(validEmail);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setShowSuccessModal(true);
   }
 
   return (
@@ -32,7 +41,7 @@ export default function Form() {
       <button
         className="btn subscribe-btn"
         type="submit"
-        onClick={(e) => e.preventDefault()}
+        onClick={handleSubmit}
       >
         Subscribe to monthly newsletter
       </button>
