@@ -1,9 +1,13 @@
 :root {
+  --clr-btn: #232740;
   --clr-darkslategrey: #242742;
   --clr-charcoalgrey: #36384e;
   --clr-grey: #9294a0;
+  --clr-tomato: #ff6257;
   --clr-white: #ffffff;
 }
+
+/* GENERAL */
 
 *,
 *::before,
@@ -13,6 +17,131 @@
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 1em;
   font-family: Roboto, sans-serif;
+  background-color: var(--clr-darkslategrey);
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* MAIN */
+
+.container {
+  background-color: var(--clr-white);
+  display: flex;
+  flex-direction: column;
+  border-radius: 1em;
+}
+
+main {
+  padding: 1em;
+}
+
+::marker {
+  content: url(assets/icon-list.svg);
+}
+
+li {
+  margin-left: 1.25em;
+  margin-bottom: 1em;
+  padding-left: 0.5em;
+}
+
+.img-container {
+  order: -1;
+}
+
+.img-container img {
+  width: 100%;
+  object-fit: contain;
+}
+
+/* FORM */
+.input-container {
+  margin-block: 1em;
+}
+
+.input-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input[type="email"] {
+  display: block;
+  width: 100%;
+  padding: 1em;
+  font-family: inherit;
+}
+
+.error-message {
+  color: var(--clr-tomato);
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-bottom: 0.25em;
+}
+
+.error-input {
+  background-color: rgb(255, 98, 87, 0.5);
+}
+
+label {
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.btn {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  background-color: var(--clr-btn);
+  color: var(--clr-white);
+  font-family: inherit;
+  font-weight: bold;
+  border: 0;
+  padding: 1em;
+  border-radius: 0.5em;
+  transition: all 0.2s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  background: linear-gradient(90deg, #ff5572 -7.76%, #ff6840 106.79%);
+  box-shadow: 1px 1px 0.25em var(--clr-tomato);
+}
+
+@media screen and (min-width: 800px) {
+  .container {
+    flex-direction: row;
+    box-shadow: 1px 1px 1em rgba(0, 0, 0, 0.5);
+  }
+
+  .img-container {
+    order: 1;
+    padding: 1em;
+  }
+
+  .img-container img {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1em;
+  }
+
+  main {
+    padding: 2em;
+  }
 }
