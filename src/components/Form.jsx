@@ -17,6 +17,7 @@ export default function Form({
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (!emailInput) return setIsValidEmail(false);
     setShowSuccessModal(true);
   }
 
